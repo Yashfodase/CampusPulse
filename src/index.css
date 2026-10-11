@@ -1,0 +1,333 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color-scheme: dark;
+    
+    /* Premium Dark-Blue Theme Palette */
+    --color-bg-page: #0B1220;
+    --color-bg-card: #111A2E;
+    --color-bg-elevated: #16223B;
+    --color-bg-sidebar: #0D1526;
+    --color-bg-input: #0F1829;
+    --color-border: #1F2D4A;
+    --color-border-hover: #2E4068;
+    
+    --color-primary: #3B82F6;
+    --color-primary-hover: #2563EB;
+    --color-primary-glow: rgba(59, 130, 246, 0.15);
+    
+    --color-accent: #22D3EE;
+    
+    --color-text-headings: #F1F5F9;
+    --color-text-body: #CBD5E1;
+    --color-text-muted: #7C8BA8;
+    
+    --color-success: #22C55E;
+    --color-warning: #F59E0B;
+    --color-danger: #EF4444;
+
+    /* Shadows */
+    --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.25);
+    --shadow-card-hover: 0 12px 28px rgba(0, 0, 0, 0.35), 0 0 16px rgba(59, 130, 246, 0.15);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #0B1220;
+    color: #CBD5E1;
+    font-size: 15px;
+    line-height: 1.5;
+    color-scheme: dark;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    color: #F1F5F9;
+    letter-spacing: -0.025em;
+    font-weight: 600;
+  }
+
+  h1 {
+    font-weight: 700;
+  }
+
+  /* Custom dark scrollbars */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0B1220;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1F2D4A;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2E4068;
+  }
+
+  /* Native inputs dark calendar/dropdown icons */
+  input[type="date"], input[type="time"], select {
+    color-scheme: dark;
+  }
+}
+
+/* Premium Dark-Blue Cards: #111A2E, 1px border #1F2D4A, 14px radius, soft shadow; hover lifts 3px + faint blue glow */
+.academic-card {
+  background-color: #111A2E;
+  border: 1px solid #1F2D4A;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 200ms ease-out, box-shadow 200ms ease-out, border-color 200ms ease-out;
+}
+
+.academic-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35), 0 0 16px rgba(59, 130, 246, 0.15);
+}
+
+/* Elevated Surfaces: Modals, dropdowns, popovers */
+.surface-elevated {
+  background-color: #16223B;
+  border: 1px solid #1F2D4A;
+  border-radius: 14px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+}
+
+/* Form Inputs: 42px height, 10px radius, 1px #1F2D4A border, #0F1829 bg, blue focus ring */
+.input-base {
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid #1F2D4A;
+  background-color: #0F1829;
+  padding: 0 0.875rem;
+  font-size: 14px;
+  color: #F1F5F9;
+  transition: border-color 150ms ease-out, box-shadow 150ms ease-out;
+}
+
+.input-base::placeholder {
+  color: #7C8BA8;
+}
+
+.input-base:focus {
+  outline: none;
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+/* Primary Button: Solid blue with inner highlight and soft blue shadow */
+.btn-primary {
+  height: 40px;
+  border-radius: 10px;
+  background-color: #3B82F6;
+  color: #F1F5F9;
+  font-weight: 500;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: background-color 150ms ease-out, box-shadow 150ms ease-out, transform 150ms ease-out;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #2563EB;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35);
+}
+
+/* Secondary Button: Transparent with border */
+.btn-secondary {
+  height: 40px;
+  border-radius: 10px;
+  background-color: transparent;
+  border: 1px solid #1F2D4A;
+  color: #CBD5E1;
+  font-weight: 500;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  transition: background-color 150ms ease-out, border-color 150ms ease-out, color 150ms ease-out;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: #16223B;
+  border-color: #2E4068;
+  color: #F1F5F9;
+}
+
+/* Ghost Button */
+.btn-ghost {
+  height: 40px;
+  border-radius: 10px;
+  background-color: transparent;
+  color: #CBD5E1;
+  font-weight: 500;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  transition: background-color 150ms ease-out, color 150ms ease-out;
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background-color: #16223B;
+  color: #F1F5F9;
+}
+
+/* Danger Button */
+.btn-danger {
+  height: 40px;
+  border-radius: 10px;
+  background-color: #EF4444;
+  color: #F1F5F9;
+  font-weight: 500;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.25);
+  transition: background-color 150ms ease-out, box-shadow 150ms ease-out;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background-color: #DC2626;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35);
+}
+
+/* Standardized Table: #16223B header, #1F2D4A borders, row hover highlight */
+.table-base {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-base th {
+  background-color: #16223B;
+  color: #CBD5E1;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #1F2D4A;
+  text-align: left;
+}
+
+.table-base td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid #1F2D4A;
+  font-size: 14px;
+  color: #CBD5E1;
+  transition: background-color 150ms ease-out;
+}
+
+.table-base tr:hover td {
+  background-color: #16223B;
+}
+
+/* Hero Radial Glow */
+.hero-glow {
+  background: radial-gradient(circle at 50% 30%, rgba(59, 130, 246, 0.18) 0%, rgba(11, 18, 32, 0) 70%);
+}
+
+/* Skeleton shimmer in navy tones */
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #111A2E 25%, #16223B 50%, #111A2E 75%);
+  background-size: 200% 100%;
+  animation: skeletonLoading 1.5s infinite ease-in-out;
+}
+
+@keyframes skeletonLoading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Page fade-in with a 12px slide-up (300ms) */
+@keyframes pageFadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page-enter {
+  animation: pageFadeSlideIn 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Modal and Toast scale-in / slide-in animations */
+@keyframes modalScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-modal-in {
+  animation: modalScaleIn 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-toast-in {
+  animation: toastSlideIn 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Card Stagger Utilities for First Load */
+.stagger-1 { animation-delay: 60ms; }
+.stagger-2 { animation-delay: 120ms; }
+.stagger-3 { animation-delay: 180ms; }
+.stagger-4 { animation-delay: 240ms; }
+.stagger-5 { animation-delay: 300ms; }
+.stagger-6 { animation-delay: 360ms; }
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .academic-card:hover {
+    transform: none !important;
+  }
+  .animate-page-enter,
+  .animate-modal-in,
+  .animate-toast-in,
+  .skeleton-shimmer {
+    animation: none !important;
+  }
+}
