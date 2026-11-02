@@ -12,6 +12,15 @@ A full-stack, college-level academic project for managing university events, stu
 - **Administrators** (Dean of Student Affairs / HODs) have complete governance over users, roles, event approvals/moderation, category management, and aggregate participation reports.
 
 ---
+## 👨‍💻 My Contribution
+
+- Worked primarily on Frontend Development and UI/UX Design.
+- Designed responsive and user-friendly interfaces.
+- Developed reusable React components.
+- Implemented event cards, search and filtering interfaces.
+- Collaborated with a 3-member team to integrate frontend with backend functionality.
+
+---
 
 ## 2. Technology Stack
 
